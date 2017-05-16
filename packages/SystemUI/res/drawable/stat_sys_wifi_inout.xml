@@ -23,9 +23,9 @@
     <path
         android:name="in"
         android:fillColor="#FFFFFFFF"
-        android:pathData="M8.7,18.3l-2.0,3.5l-2.0,-3.5z" />
+        android:pathData="M24.500000,17.700000l-2.500000,4.300000 -2.500000,-4.300000z" />
     <path
         android:name="out"
         android:fillColor="#FFFFFFFF"
-        android:pathData="M0.5,21.8l2.0,-3.5l2.0,3.5z" />
+        android:pathData="M1.500000,22.000000l2.500000,-4.300000 2.500000,4.300000z" />
 </vector>
