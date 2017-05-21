@@ -6116,6 +6116,12 @@ public static final String PHONE_BLACKLIST_REGEX_ENABLED = "phone_blacklist_rege
         public static final String SENSOR_BLOCK = "sensor_block";
 
         /**
+         * Whether the Home button works during call
+         * @hide
+         */
+        public static final String ALLOW_INCALL_HOME = "allow_incall_home";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
