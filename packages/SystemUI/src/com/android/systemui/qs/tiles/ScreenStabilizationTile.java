@@ -95,7 +95,7 @@ public class ScreenStabilizationTile extends QSTileImpl<BooleanState> {
             return mContext.getString(R.string.quick_settings_stabilization_off);
         }
     }
-    
+
     private class ScreenStabilizationObserver extends ContentObserver {
 	private ContentResolver mResolver;
         ScreenStabilizationObserver(Handler handler) {
@@ -116,4 +116,3 @@ public class ScreenStabilizationTile extends QSTileImpl<BooleanState> {
         }
     }
 }
-
