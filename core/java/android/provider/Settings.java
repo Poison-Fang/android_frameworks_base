@@ -4587,6 +4587,20 @@ public final class Settings {
         public static final String VOLUME_DIALOG_STROKE_COLOR = "volume_dialog_stroke_color";
 
         /**
+         * Hold current font name and name of the originating package Uses "|" as a delimiter
+         *
+         * @hide
+         */
+        public static final String FONT_INFO = "font_info";
+
+        /**
+         * Hold list of installed font provider packages. Uses "|" as a delimiter
+         *
+         * @hide
+         */
+        public static final String FONT_PACKAGES = "font_packages";
+
+        /**
          * Volume dialog stroke custom thickness
          * 4dp is default for AICP
          * @hide
