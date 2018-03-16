@@ -79,6 +79,7 @@ import com.android.systemui.qs.tiles.GestureAnyWhereTile;
 import com.android.systemui.qs.tiles.PulseTile;
 import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
+import com.android.systemui.qs.tiles.ScreenStabilizationTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.PieTile;
 import com.android.systemui.qs.tiles.RRTile;
@@ -504,7 +505,8 @@ public class QSTileHost implements QSTile.Host, Tunable {
         else if (tileSpec.equals("performance")) return new PerfProfileTile(this);
         else if (tileSpec.equals("hwkeys")) return  new HWKeysTile(this);
         else if (tileSpec.equals("pie")) return  new PieTile(this);
-        // Intent tiles.
+        else if (tileSpec.equals("screenstabilization")) return new ScreenStabilizationTile(this);
+	// Intent tiles.
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(this,tileSpec);
         else if (tileSpec.startsWith(CustomTile.PREFIX)) return CustomTile.create(this,tileSpec);
         else {
