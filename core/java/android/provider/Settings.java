@@ -12221,6 +12221,12 @@ public static final String PHONE_BLACKLIST_REGEX_ENABLED = "phone_blacklist_rege
          public static final String CONNECTED_LINE_IDENTIFICATION = "connected_line_identification";
 
         /**
+         * Default animation
+         * @hide
+         */
+        public static final String SYSTEM_DEFAULT_ANIMATION = "system_default_animation";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
