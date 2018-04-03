@@ -227,9 +227,10 @@ public class KeyguardStatusView extends GridLayout implements
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        Typeface tfLight = Typeface.create(FONT_FAMILY_LIGHT, Typeface.NORMAL);
-        Typeface tfMedium = Typeface.create(FONT_FAMILY_MEDIUM, Typeface.NORMAL);
-        mClockView.setTypeface(tfLight);
+        Typeface tf = Typeface.create(FONT_FAMILY, Typeface.NORMAL);
+        mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+        mClockView.setTypeface(tf);
         // Some layouts like burmese have a different margin for the clock
         MarginLayoutParams layoutParams = (MarginLayoutParams) mClockView.getLayoutParams();
         layoutParams.bottomMargin = getResources().getDimensionPixelSize(
@@ -249,7 +250,7 @@ public class KeyguardStatusView extends GridLayout implements
 
     private int getLockClockFont() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_CLOCK_FONTS, 0);
+                Settings.System.LOCK_CLOCK_FONTS, 23);
     }
 
     public void refreshTime() {
@@ -804,7 +805,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshLockFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockFont = isPrimary ? getLockClockFont() : 0;
+        int lockClockFont = isPrimary ? getLockClockFont() : 23;
 
         if (lockClockFont == 0) {
             mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
@@ -1001,6 +1002,8 @@ public class KeyguardStatusView extends GridLayout implements
         void observe() {
            ContentResolver resolver = mContext.getContentResolver();
            resolver.registerContentObserver(Settings.System.getUriFor(
+                   Settings.System.LOCK_DATE_FONTS), false, this, UserHandle.USER_ALL);
+           resolver.registerContentObserver(Settings.System.getUriFor(
                    Settings.System.LOCK_SCREEN_WEATHER_CONDITION_ICON), false, this, UserHandle.USER_ALL);
            resolver.registerContentObserver(Settings.System.getUriFor(
                    Settings.System.LOCK_SCREEN_SHOW_WEATHER), false, this, UserHandle.USER_ALL);
@@ -1036,6 +1039,9 @@ public class KeyguardStatusView extends GridLayout implements
                    Settings.System.LOCK_SCREEN_SHOW_WEATHER_LOCATION))) {
                updateSettings(false);
             } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.LOCK_DATE_FONTS))) {
+               refreshdatesize();
+            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LOCKCLOCK_FONT_SIZE))) {
                updateclocksize();
             } else if (uri.equals(Settings.System.getUriFor(
@@ -1064,7 +1070,7 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_label_font_size),
                 UserHandle.USER_CURRENT);
            dateFont = Settings.System.getIntForUser(resolver,
-                Settings.System.LOCK_DATE_FONTS, 8, UserHandle.USER_CURRENT);
+                Settings.System.LOCK_DATE_FONTS, 24, UserHandle.USER_CURRENT);
                 updateclocksize();
                 refreshdatesize();
            updateSettings(false);
