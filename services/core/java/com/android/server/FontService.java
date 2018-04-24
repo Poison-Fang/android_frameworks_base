@@ -98,7 +98,7 @@ public class FontService extends IFontService.Stub {
         @Override
         public void onStart() {
             mService = new FontService(getContext());
-            publishBinderService("crfont", mService);
+            publishBinderService("rrfont", mService);
         }
 
         @Override
