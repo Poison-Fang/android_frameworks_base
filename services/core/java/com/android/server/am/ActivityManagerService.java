@@ -607,8 +607,8 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     private static final int NATIVE_DUMP_TIMEOUT_MS = 2000; // 2 seconds;
 
-    // System prop for refreshing font
-    private static final String PROP_REFRESH_FONT = "sys.refresh_font";
+    // System prop for refreshing theme
+    private static final String PROP_REFRESH_THEME = "sys.refresh_theme";
 
     /* Freq Aggr boost objects */
     public static BoostFramework sFreqAggr_init = null;
@@ -3993,7 +3993,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                 mNativeDebuggingApp = null;
             }
 
-            // Check if zygote should refresh its fonts
+            // Check if zygote should refresh its theme
             boolean refreshTheme = false;
             if (SystemProperties.getBoolean(PROP_REFRESH_THEME, false)) {
                 SystemProperties.set(PROP_REFRESH_THEME, "false");
