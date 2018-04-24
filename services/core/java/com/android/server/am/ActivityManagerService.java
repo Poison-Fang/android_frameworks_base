@@ -3994,10 +3994,10 @@ public class ActivityManagerService extends IActivityManager.Stub
             }
 
             // Check if zygote should refresh its fonts
-            boolean refreshFont = false;
-            if (SystemProperties.getBoolean(PROP_REFRESH_FONT, false)) {
-                SystemProperties.set(PROP_REFRESH_FONT, "false");
-                refreshFont = true;
+            boolean refreshTheme = false;
+            if (SystemProperties.getBoolean(PROP_REFRESH_THEME, false)) {
+                SystemProperties.set(PROP_REFRESH_THEME, "false");
+                refreshTheme = true;
             }
 
             String invokeWith = null;
@@ -4048,12 +4048,12 @@ public class ActivityManagerService extends IActivityManager.Stub
                 startResult = startWebView(entryPoint,
                         app.processName, uid, uid, gids, debugFlags, mountExternal,
                         app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,
-                        app.info.dataDir, null, entryPointArgs, refreshFont);
+                        app.info.dataDir, null, refreshTheme, entryPointArgs);
             } else {
                 startResult = Process.start(entryPoint,
                         app.processName, uid, uid, gids, debugFlags, mountExternal,
                         app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,
-                        app.info.dataDir, invokeWith, entryPointArgs, refreshFont);
+                        app.info.dataDir, invokeWith, refreshTheme, entryPointArgs);
             }
             checkTime(startTime, "startProcess: returned from zygote!");
             Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);

@@ -203,12 +203,12 @@ public class ZygoteProcess {
                                                   String instructionSet,
                                                   String appDataDir,
                                                   String invokeWith,
-                                                  String[] zygoteArgs,
-                                                  boolean refreshFont) {
+                                                  boolean refreshTheme,
+                                                  String[] zygoteArgs) {
         try {
             return startViaZygote(processClass, niceName, uid, gid, gids,
                     debugFlags, mountExternal, targetSdkVersion, seInfo,
-                    abi, instructionSet, appDataDir, invokeWith, zygoteArgs, refreshFont);
+                    abi, instructionSet, appDataDir, invokeWith, refreshTheme, zygoteArgs);
         } catch (ZygoteStartFailedEx ex) {
             Log.e(LOG_TAG,
                     "Starting VM process through Zygote failed");
@@ -339,8 +339,8 @@ public class ZygoteProcess {
                                                       String instructionSet,
                                                       String appDataDir,
                                                       String invokeWith,
-                                                      String[] extraArgs,
-                                                      boolean refreshFont)
+                                                      boolean refreshTheme,
+                                                      String[] extraArgs)
                                                       throws ZygoteStartFailedEx {
         ArrayList<String> argsForZygote = new ArrayList<String>();
 
@@ -384,8 +384,8 @@ public class ZygoteProcess {
             argsForZygote.add("--mount-external-write");
         }
         argsForZygote.add("--target-sdk-version=" + targetSdkVersion);
-        if (refreshFont) {
-            argsForZygote.add("--refresh-font");
+        if (refreshTheme) {
+            argsForZygote.add("--refresh-theme");
         }
 
         // --setgroups is a comma-separated list
