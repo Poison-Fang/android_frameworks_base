@@ -4899,6 +4899,18 @@ public final class Settings {
         public static final String SHOW_VOLTE_ICON = "show_volte_icon";
 
         /**
+         * Whether to display data activity arrows for data connections
+         * @hide
+         */
+        public static final String DATA_ACTIVITY_ARROWS = "data_activity_arrows";
+
+        /**
+         * Whether to display data activity arrows for wifi connections
+         * @hide
+         */
+        public static final String WIFI_ACTIVITY_ARROWS = "wifi_activity_arrows";
+
+        /**
          * @hide
          */
         public static final String OMNIJAWS_WEATHER_ICON_PACK = "omnijaws_weather_icon_pack";
