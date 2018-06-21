@@ -1306,7 +1306,7 @@ public final class SystemServer {
 
       	    traceBeginAndSlog("Starting ScreenStabilization Service");
             mSystemServiceManager.startService(ScreenStabilization.class);
-            traceEnd();
+            Trace.traceEnd(Trace.TRACE_TAG_SYSTEM_SERVER);
 
         if (!disableNonCoreServices && !disableMediaProjection) {
             mSystemServiceManager.startService(MediaProjectionManagerService.class);
