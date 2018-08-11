@@ -78,8 +78,8 @@
         <com.android.keyguard.AlphaOptimizedImageButton
             android:id="@+id/running_services_button"
             style="@android:style/Widget.Material.Button.Borderless"
-            android:layout_width="46dp"
-            android:layout_height="52dp"
+            android:layout_width="@dimen/qs_panel_footer_height"
+            android:layout_height="@dimen/qs_panel_footer_height"
             android:clickable="true"
             android:focusable="true"
             android:background="@drawable/ripple_drawable"
