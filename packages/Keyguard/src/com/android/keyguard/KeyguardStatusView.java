@@ -427,7 +427,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshLockFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockFont = isPrimary ? getLockClockFont() : 0;
+        int lockClockFont = isPrimary ? getLockClockFont() : 14;
 
         if (lockClockFont == 0) {
             mClockView.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
@@ -470,6 +470,18 @@ public class KeyguardStatusView extends GridLayout implements
         }
         if (lockClockFont == 13) {
             mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+        }
+        if (lockClockFont == 14) {
+                mDateView.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 15) {
+                mDateView.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 16) {
+                mDateView.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 17) {
+                mDateView.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
         }
     }
 
@@ -871,6 +883,18 @@ public class KeyguardStatusView extends GridLayout implements
         if (dateFont == 24) {
             mDateView.setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
         }
+        if (dateFont == 25) {
+            mDateView.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
+        }
+        if (dateFont == 26) {
+            mDateView.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
+        }
+        if (dateFont == 27) {
+            mDateView.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+        }
+        if (dateFont == 28) {
+            mDateView.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
+        }
 
         if (mOwnerInfo != null) {
             mOwnerInfo.setTextColor(ownerInfoColor);
@@ -1082,7 +1106,7 @@ public class KeyguardStatusView extends GridLayout implements
                      resolver, Settings.System.HIDE_LOCKSCREEN_DATE, 1, currentUserId) == 1;
 
            dateFont = Settings.System.getIntForUser(resolver,
-                Settings.System.LOCK_DATE_FONTS, 8, UserHandle.USER_CURRENT);
+                Settings.System.LOCK_DATE_FONTS, 25, UserHandle.USER_CURRENT);
 
            mShowWeather = Settings.System.getInt(resolver,
                 Settings.System.LOCK_SCREEN_SHOW_WEATHER, 0) == 1;
